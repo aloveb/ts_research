@@ -1,2 +1,2 @@
-import App from './dist/index';
-const app = new App();
+import App from './dist/root'; //入口类
+export default App;

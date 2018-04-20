@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "command": "node",
+  "isShellCommand": true,
+  "args": ["${workspaceRoot}/.vscode/task.js", "${file}"],
+  "showOutput": "silent",
+  "problemMatcher": "$tsc"
+}
