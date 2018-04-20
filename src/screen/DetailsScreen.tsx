@@ -1,22 +1,29 @@
 import * as React from "react";
 import { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
+
 import APPComponent from "../base/APPComponent";
+import APPProps from "../base/APPProps";
+import APPState from "../base/APPState";
 
-interface Props {
-  visible: boolean;
-  hideModal?: boolean; //隐藏背景，让页面上出现loading的同时其他按钮也是可以点击的，默认为false
+interface Props extends APPProps{
 }
 
-interface State {
-  modalVisible: boolean;
+interface State extends APPState{
 }
-
 export default class DetailsScreen extends APPComponent<Props, State> {
   renderContent() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Details Screen</Text>
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
+        <Button
+          title="Update the title"
+          onPress={() => this.props.navigation.setParams({title: 'Updated!'})}
+        />
       </View>
     );
   }

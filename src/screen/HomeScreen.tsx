@@ -1,13 +1,14 @@
 import * as React from "react";
 import { Component } from "react";
 import { View, Text, Button } from "react-native";
-import APPComponent from "../base/APPComponent";
 
-interface Props {
-    navigation: any;
+import APPComponent from "../base/APPComponent";
+import APPProps from "../base/APPProps";
+import APPState from "../base/APPState";
+interface Props extends APPProps{
 }
 
-interface State {
+interface State extends APPState{
 }
 class HomeScreen extends APPComponent<Props, State> {
     public renderContent() {
