@@ -19,6 +19,10 @@ class HomeScreen extends APPComponent<Props, State> {
                     title="Go to Details"
                     onPress={() => this.props.navigation.navigate('Details')}
                 />
+                <Button
+                    title="抽象工厂的例子"
+                    onPress={() => this.props.navigation.navigate('FactoryExample')}
+                />
             </View>
         );
     }
