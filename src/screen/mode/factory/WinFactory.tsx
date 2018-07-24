@@ -2,10 +2,7 @@ import WinButton from "./WinButton";
 import WinBorder from "./WinBorder";
 
 export default class MacFactory {
-	static createButton(): WinButton {
-	    return new WinButton();
-	}
-	static createBorder(): WinBorder {
-	    return new WinBorder();
+	static create(type: 'button' | 'border') {
+	    return type === 'button' ? new WinButton() : new WinBorder();
 	}
 }

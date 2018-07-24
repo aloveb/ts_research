@@ -18,7 +18,7 @@ export default class Example extends APPComponent<APPProps, State> {
  }
   
   private clickFatory(type: 'button' | 'border', os: 'win' | 'mac'): void {
-    //TODO write component for the two factory
+    
     this.setState({
         text: os.concat('-').concat(type)
     });
