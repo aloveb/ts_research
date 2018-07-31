@@ -8,7 +8,7 @@ abstract class AppComponent<P, S> extends Component<P, S> {
 		const { params } = navigation.state;
 
 		return {
-			title: params ? params.title : 'A Nested Details Screen',
+			title: params ? params.title : 'Home Screen',
 			headerStyle: {
 				backgroundColor: '#f4511e',
 			},

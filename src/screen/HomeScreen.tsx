@@ -14,14 +14,17 @@ class HomeScreen extends APPComponent<Props, State> {
     public renderContent() {
         return (
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                <Text>Home Screen</Text>
+                <Button
+                    title="抽象工厂"
+                    onPress={() => this.props.navigation.navigate('FactoryExample')}
+                />
+                <Button
+                    title="适配器"
+                    onPress={() => this.props.navigation.navigate('AdapterExample')}
+                />
                 <Button
                     title="Go to Details"
                     onPress={() => this.props.navigation.navigate('Details')}
-                />
-                <Button
-                    title="抽象工厂的例子"
-                    onPress={() => this.props.navigation.navigate('FactoryExample')}
                 />
             </View>
         );

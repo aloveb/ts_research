@@ -8,42 +8,51 @@ import APPComponent from "../../../base/APPComponent";
 
 import MacFactory from "./MacFactory";
 import WinFactory from "./WinFactory";
-
+import Type from "./Type";
+import OSType from "./OSType";
 interface State extends APPState{
-    text: string;
+    os: OSType;
+    type: Type;
+
 }
 export default class Example extends APPComponent<APPProps, State> {
- static state:State = {
-     text: 'empty'
+  public state: State = {
+     os: OSType.WIN,
+     type: Type.BORDER
  }
   
-  private clickFatory(type: 'button' | 'border', os: 'win' | 'mac'): void {
-    
+  private clickFatory(type: Type, os: OSType): void {
     this.setState({
-        text: os.concat('-').concat(type)
+      os: os,
+      type: type
     });
+  }
+
+  private renderBySelected(): JSX.Element {
+    const { os, type } = this.state;
+    const returnView = os === OSType.MAC ? MacFactory.create(type) : WinFactory.create(type);
+    return returnView;
   }
 
   public renderContent(): JSX.Element {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Factory Example</Text>
-        <Text>{this.state.text}</Text>
+        {this.renderBySelected()}
         <Button
           title="create win button"
-          onPress={() => this.clickFatory('button', 'win')}
+          onPress={() => this.clickFatory(Type.BUTTON, OSType.WIN)}
         />
         <Button
           title="create mac button"
-          onPress={() => this.clickFatory('button', 'mac')}
+          onPress={() => this.clickFatory(Type.BUTTON, OSType.MAC)}
         />
         <Button
           title="create win border"
-          onPress={() => this.clickFatory('border', 'win')}
+          onPress={() => this.clickFatory(Type.BORDER, OSType.WIN)}
         />
         <Button
           title="create mac border"
-          onPress={() => this.clickFatory('border', 'mac')}
+          onPress={() => this.clickFatory(Type.BORDER, OSType.MAC)}
         />
         <Button
           title="Go back"

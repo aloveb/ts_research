@@ -5,6 +5,7 @@ import { StackNavigator } from "react-navigation";
 import HomeScreen from "./screen/HomeScreen"
 import DetailsScreen from "./screen/DetailsScreen"
 import FactoryExample from "./screen/mode/factory/Example"
+import AdapterExample from "./screen/mode/adapter/Example"
 
 const RootStack = StackNavigator({
   Home: {
@@ -15,6 +16,9 @@ const RootStack = StackNavigator({
   },
   FactoryExample: {
     screen: FactoryExample,
+  },
+  AdapterExample: {
+    screen: AdapterExample,
   }
 }, {
     initialRouteName: "Home",

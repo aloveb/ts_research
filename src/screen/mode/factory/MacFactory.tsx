@@ -1,8 +1,10 @@
 import MacButton from "./MacButton";
 import MacBorder from "./MacBorder";
+import Type from "./Type";
 
 export default class MacFactory {
-	static create(type: 'button' | 'border') {
-	    return type === 'button' ? new MacButton() : new MacBorder();
+	static create(type: Type): JSX.Element {
+		const obj = type === Type.BUTTON ? new MacButton() : new MacBorder();
+	    return obj.view();
 	}
 }
