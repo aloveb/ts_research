@@ -1,6 +1,8 @@
 import RNFS from "react-native-fs";
 import Page from "../../../base/Page";
 
+const moment = require("moment");
+
 // key for current project
 const LOG_KEY = "logger_for_ts_research_project";
 const logFilePath = RNFS.ExternalDirectoryPath + "/logs.txt"; // "/storage/emulated/0/Android/data/{project.name}/files/logs.txt"
@@ -41,7 +43,7 @@ export default class Logger<T extends Page> {
               const message = moment().format("【YYYY-MM-DD HH:mm:ss】 -- ") + type + " " + info + ";\n";
               if (result.size < 1024 * 1024 * 10) {
                 RNFS.appendFile(logFilePath, message);
-              } else { // 如果日志文件大于10M
+              } else { // 如果日志文件大于10Mß
                 RNFS.writeFile(logFilePath, moment().format("【YYYY-MM-DD HH:mm:ss】 -- " + "日志文件大小超过10Mb，清空之前的记录！;\n"));
               }
             });
