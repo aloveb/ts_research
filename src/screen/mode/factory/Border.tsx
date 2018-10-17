@@ -1,3 +1,3 @@
-export default interface Border{
+export default interface Border {
     view(): JSX.Element;
 }

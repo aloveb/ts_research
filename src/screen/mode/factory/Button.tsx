@@ -1,3 +1,3 @@
-export default interface Button{
+export default interface Button {
     view(): JSX.Element;
 }

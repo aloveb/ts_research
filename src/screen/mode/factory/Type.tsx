@@ -1,4 +1,4 @@
-enum Type{
+enum Type {
     BORDER = "BORDER",
     BUTTON = "BUTTON"
 }

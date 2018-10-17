@@ -10,33 +10,24 @@ import MacFactory from "./MacFactory";
 import WinFactory from "./WinFactory";
 import Type from "./Type";
 import OSType from "./OSType";
-interface State extends APPState{
-    os: OSType;
-    type: Type;
+interface State extends APPState {
+  os: OSType;
+  type: Type;
 
 }
 export default class Example extends APPComponent<APPProps, State> {
   public state: State = {
-     os: OSType.WIN,
-     type: Type.BORDER
- }
-  
-  private clickFatory(type: Type, os: OSType): void {
-    this.setState({
-      os: os,
-      type: type
-    });
-  }
+    os: OSType.WIN,
+    type: Type.BORDER
+  };
 
-  private renderBySelected(): JSX.Element {
-    const { os, type } = this.state;
-    const returnView = os === OSType.MAC ? MacFactory.create(type) : WinFactory.create(type);
-    return returnView;
+  public getClassName(): string {
+    return Example.name;
   }
 
   public renderContent(): JSX.Element {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         {this.renderBySelected()}
         <Button
           title="create win button"
@@ -60,5 +51,18 @@ export default class Example extends APPComponent<APPProps, State> {
         />
       </View>
     );
+  }
+
+  private clickFatory(type: Type, os: OSType): void {
+    this.setState({
+      os: os,
+      type: type
+    });
+  }
+
+  private renderBySelected(): JSX.Element {
+    const { os, type } = this.state;
+    const returnView = os === OSType.MAC ? MacFactory.create(type) : WinFactory.create(type);
+    return returnView;
   }
 }

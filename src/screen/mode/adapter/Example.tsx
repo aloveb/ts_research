@@ -7,35 +7,18 @@ import APPState from "../../../base/APPState";
 import APPComponent from "../../../base/APPComponent";
 
 import Adapter from "./Adapter";
-interface State extends APPState{
+interface State extends APPState {
   type: number;
 }
 export default class Example extends APPComponent<APPProps, State> {
-  private adapter = new Adapter();
   public state: State = {
     type: -1
- }
-  
-  private clickFatory(type: number): void {
-    this.setState({
-      type
-    });
-  }
-
-  private renderBySelected(): JSX.Element {
-    const { type } = this.state;
-    let view = null;
-    if( type === 0 ) {
-      view = this.adapter.method1();
-    } else  if( type === 1 ){
-      view = this.adapter.method2();
-    }
-    return view;
-  }
+  };
+  private adapter = new Adapter();
 
   public renderContent(): JSX.Element {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         {this.renderBySelected()}
         <Button
           title="method1"
@@ -51,5 +34,26 @@ export default class Example extends APPComponent<APPProps, State> {
         />
       </View>
     );
+  }
+
+  public getClassName(): string {
+    return Example.name;
+  }
+
+  private clickFatory(type: number): void {
+    this.setState({
+      type
+    });
+  }
+
+  private renderBySelected(): JSX.Element {
+    const { type } = this.state;
+    let view = null;
+    if (type === 0) {
+      view = this.adapter.method1();
+    } else if (type === 1) {
+      view = this.adapter.method2();
+    }
+    return view;
   }
 }

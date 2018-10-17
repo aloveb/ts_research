@@ -5,6 +5,6 @@ import TargetInterface from "./TargetInterface";
 
 export default class Adapter extends BeAdapted implements TargetInterface {
     public method2(): JSX.Element {
-        return <Text>{'Adapter method2'}</Text>;
+        return <Text>{"Adapter method2"}</Text>;
     }
 }

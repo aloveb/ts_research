@@ -2,23 +2,23 @@
 import * as React from "react";
 import { Component } from "react";
 import { View, Text } from "react-native";
+import Page from "./Page";
 
-abstract class AppComponent<P, S> extends Component<P, S> {
-	static navigationOptions = ({ navigation }) => {
+abstract class AppComponent<P, S> extends Component<P, S> implements Page {
+	public static navigationOptions = ({ navigation }) => {
 		const { params } = navigation.state;
 
 		return {
-			title: params ? params.title : 'Home Screen',
+			title: params ? params.title : "Home Screen",
 			headerStyle: {
-				backgroundColor: '#f4511e',
+				backgroundColor: "#f4511e",
 			},
-			headerTintColor: '#fff',
+			headerTintColor: "#fff",
 			headerTitleStyle: {
-				fontWeight: 'bold',
+				fontWeight: "bold",
 			}
-		}
-	};
-
+		};
+	}
 
 	public render(): any {
 		return (
@@ -32,6 +32,10 @@ abstract class AppComponent<P, S> extends Component<P, S> {
 
 	//自定义的render方法，重写了render
 	public abstract renderContent(): any;
+	// public abstract getClassName(): string;
+	public getClassName(): string {
+		return AppComponent.name;
+	  }
 }
 
 export default AppComponent;

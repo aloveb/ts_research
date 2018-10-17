@@ -1,4 +1,4 @@
-enum OSType{
+enum OSType {
     WIN = "WIN",
     MAC = "MAC"
 }

@@ -1,20 +1,19 @@
 import * as React from "react";
-import { Component } from "react";
 import { View, Text, Button } from "react-native";
 
 import APPComponent from "../base/APPComponent";
 import APPProps from "../base/APPProps";
 import APPState from "../base/APPState";
 
-interface Props extends APPProps{
+interface Props extends APPProps {
 }
 
-interface State extends APPState{
+interface State extends APPState {
 }
 export default class DetailsScreen extends APPComponent<Props, State> {
-  renderContent() {
+  public renderContent() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Details Screen</Text>
         <Button
           title="Go back"
@@ -22,7 +21,7 @@ export default class DetailsScreen extends APPComponent<Props, State> {
         />
         <Button
           title="Update the title"
-          onPress={() => this.props.navigation.setParams({title: 'Updated!'})}
+          onPress={() => this.props.navigation.setParams({ title: "Updated!" })}
         />
       </View>
     );
